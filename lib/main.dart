@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
+import 'pages/home.dart';
+import 'pages/login.dart';
+import 'pages/register.dart';
+import 'services/shared.dart';
 
-void main() {
+Widget _defaultHome = const LoginPage();
+//Widget _defaultHome = const HomePage();
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Get result of the login function.
+  bool _result = await SharedService.isLoggedIn();
+  if (_result) {
+    _defaultHome = const HomePage();
+  }
   runApp(const MyApp());
 }
 
@@ -11,7 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Vault',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,7 +38,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: const MyHomePage(title: 'Vault Home Page'),
+      routes: {
+        '/': (context) => _defaultHome,
+        '/home': (context) => const HomePage(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+      },
     );
   }
 }
