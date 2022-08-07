@@ -1,24 +1,28 @@
 import 'dart:convert';
 import 'dart:ffi';
 
-LoginResponseModel loginResponseJson(String str) =>
-    LoginResponseModel.fromJson(json.decode(str));
+userModel userModelJson(String str) =>
+    userModel.fromJson(json.decode(str));
 
-class LoginResponseModel {
-  LoginResponseModel({
+class userModel {
+  userModel({
+    required this.status,
     required this.message,
     required this.data,
   });
+  late final int status;
   late final String message;
   late final Data data;
 
-  LoginResponseModel.fromJson(Map<String, dynamic> json) {
+  userModel.fromJson(Map<String, dynamic> json) {
+    status = json['status'];
     message = json['message'];
     data = Data.fromJson(json['data']);
   }
 
   Map<String, dynamic> toJson() {
     final _data = <String, dynamic>{};
+    _data['status'] = status;
     _data['message'] = message;
     _data['data'] = data.toJson();
     return _data;
@@ -42,7 +46,7 @@ class Data {
 
   Data.fromJson(Map<String, dynamic> json) {
     username = json['username'];
-    cardnumber = json['cardnumber'];
+    cardnumber = json['number'];
     expiry = json['expiry'];
     amount = json['amount'];
     transactions = json['transactions'];

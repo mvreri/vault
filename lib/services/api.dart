@@ -72,8 +72,9 @@ class APIService {
       'Content-Type': 'application/json'
     };
 
-    var url = Uri.http(Config.apiURL, Config.userProfileAPI);
-
+    var _param = '/' + loginDetails!.data.cardnumber;
+    var url = Uri.http(Config.apiURL, Config.userProfileAPI + _param);
+    print(url);
     var response = await client.get(
       url,
       headers: requestHeaders,
