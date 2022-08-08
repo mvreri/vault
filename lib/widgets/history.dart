@@ -48,7 +48,6 @@ class historywallet extends StatelessWidget {
                 ),
                 Row(
                   children:  [
-                    Text(time,style: const TextStyle(color:Colors.grey)),
                     SizedBox(width:  we * 0.04,),
                     Text(day,style: const TextStyle(color:Colors.grey)),
                   ],)
@@ -58,11 +57,6 @@ class historywallet extends StatelessWidget {
               width:we * 0.16,
             ),
             Text(postiveornagtive,style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
-            Image.asset("images/us-dollar.png",
-              width: we * 0.035,
-              height: we * 0.035,
-              color: Colors.white,
-            ),
             Text(money,style: const TextStyle(color:Colors.white,fontWeight: FontWeight.bold),)
           ],
         ),

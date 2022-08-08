@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: HexColor("#283B71"),
+        backgroundColor: const Color(0xFF272A3F),
         body: ProgressHUD(
           child: Form(
             key: globalFormKey,
@@ -54,46 +54,24 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height / 5.2,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.white,
-                  Colors.white,
-                ],
-              ),
-              borderRadius: BorderRadius.only(
-                //topLeft: Radius.circular(100),
-                //topRight: Radius.circular(150),
-                bottomRight: Radius.circular(100),
-                bottomLeft: Radius.circular(100),
-              ),
-            ),
+
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // Padding(
-                //   padding: const EdgeInsets.only(top: 20),
-                //   child: Center(
-                //     child: Text(
-                //       "Shopping App",
-                //       style: TextStyle(
-                //         fontWeight: FontWeight.bold,
-                //         fontSize: 40,
-                //         color: HexColor("#283B71"),
-                //       ),
-                //     ),
-                //   ),
-                //),
-                Align(
-                  alignment: Alignment.center,
-                  child: Image.asset(
-                    "assets/images/ShoppingAppLogo.png",
-                    fit: BoxFit.contain,
-                    width: 250,
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Center(
+                    child: Text(
+                      "Vault",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                        color: HexColor("#ffffff"),
+                      ),
+                    ),
                   ),
                 ),
+
               ],
             ),
           ),
